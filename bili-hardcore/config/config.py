@@ -2,11 +2,15 @@ import os
 from scripts.check_config import check
 # API Keys
 import json
+from tools.logger import logger
 
 # OpenAI默认配置
 BASE_URL_OPENAI = ''
 MODEL_OPENAI = ''
 API_KEY_OPENAI = ''
+
+access_token = None;
+csrf = None;
 
 def load_api_key(key_type):
     """从用户目录加载API密钥
@@ -99,6 +103,10 @@ def load_openai_config():
         except Exception as e:
             print(f'读取OpenAI配置失败: {str(e)}')
     return '', '', ''
+
+logger.info("哔哩哔哩硬核会员自动答题脚本")
+logger.info("本软件免费且代码开源")
+logger.info("源码&问题反馈: https://github.com/Karben233/bili-hardcore")
 
 check()
 # 选择使用的LLM模型
